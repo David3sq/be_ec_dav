@@ -1,6 +1,7 @@
 global using ecommerce.auth_ecommerce.Dto;
 global using ecommerce.auth_ecommerce.Models;
 global using ecommerce.auth_ecommerce.Mappers;
+global using ecommerce.auth_ecommerce.Services;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.AspNetCore.Authorization;
 global using Microsoft.EntityFrameworkCore;
