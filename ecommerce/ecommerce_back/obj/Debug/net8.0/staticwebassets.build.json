@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "0KuAvxoxCNjPtBwSoPVsBYbrfdKRkqj8Ozc3sMfKuTc=",
+  "Source": "ecommerce_back",
+  "BasePath": "_content/ecommerce_back",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

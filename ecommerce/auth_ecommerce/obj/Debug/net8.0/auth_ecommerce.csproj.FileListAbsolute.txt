@@ -1,0 +1,8 @@
+C:\Users\squar\Documents\GitHub\be_ec_dav\ecommerce\auth_ecommerce\obj\Debug\net8.0\auth_ecommerce.csproj.AssemblyReference.cache
+C:\Users\squar\Documents\GitHub\be_ec_dav\ecommerce\auth_ecommerce\obj\Debug\net8.0\auth_ecommerce.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\squar\Documents\GitHub\be_ec_dav\ecommerce\auth_ecommerce\obj\Debug\net8.0\auth_ecommerce.AssemblyInfoInputs.cache
+C:\Users\squar\Documents\GitHub\be_ec_dav\ecommerce\auth_ecommerce\obj\Debug\net8.0\auth_ecommerce.AssemblyInfo.cs
+C:\Users\squar\Documents\GitHub\be_ec_dav\ecommerce\auth_ecommerce\obj\Debug\net8.0\auth_ecommerce.csproj.CoreCompileInputs.cache
+C:\Users\squar\Documents\GitHub\be_ec_dav\ecommerce\auth_ecommerce\obj\Debug\net8.0\auth_ecommerce.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\squar\Documents\GitHub\be_ec_dav\ecommerce\auth_ecommerce\obj\Debug\net8.0\auth_ecommerce.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\squar\Documents\GitHub\be_ec_dav\ecommerce\auth_ecommerce\obj\Debug\net8.0\auth_ecommerce.sourcelink.json
