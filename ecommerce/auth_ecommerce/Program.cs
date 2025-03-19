@@ -1,6 +1,10 @@
+// GlobalUsings.cs (opzionale, se preferisci metterli in un file separato)
+// Puoi anche inserirli direttamente in Program.cs se preferisci.
 global using ecommerce.auth_ecommerce.Dto;
 global using ecommerce.auth_ecommerce.Models;
+global using ecommerce.auth_ecommerce.Data;
 global using ecommerce.auth_ecommerce.Mappers;
+global using Microsoft.Extensions.Logging;
 global using ecommerce.auth_ecommerce.Services;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.AspNetCore.Authorization;
@@ -18,18 +22,25 @@ global using AutoMapper;
 global using Microsoft.OpenApi.Models;
 global using Swashbuckle.AspNetCore.Filters;
 global using System.Text.Json.Serialization;
+global using System.Linq;
+global using Microsoft.AspNetCore.Http.HttpResults;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Aggiunta dei servizi al container.
+// Configurazione dei servizi nel container.
+
+// Aggiunta dei controller.
 builder.Services.AddControllers();
+
+// Aggiunta degli endpoint per API Explorer (Swagger).
 builder.Services.AddEndpointsApiExplorer();
+
+// Configurazione di Swagger.
 builder.Services.AddSwaggerGen(options =>
 {
-    // Configurazione del documento Swagger
     options.SwaggerDoc("v1", new OpenApiInfo { Title = "Ecommerce API", Version = "v1" });
 
-    // Definizione della sicurezza JWT per Swagger
+    // Definizione della sicurezza JWT per Swagger.
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "Inserisci il token JWT nel formato: Bearer {token}",
@@ -54,20 +65,28 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-// Configurazione dell'autenticazione JWT
+// Configurazione dell'autenticazione JWT.
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
-        // Assicurarsi di avere la chiave in appsettings.json sotto "Jwt:Key"
+        // La chiave segreta dovrebbe essere definita in appsettings.json in "Jwt:Key".
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
             ValidateIssuer = false,
             ValidateAudience = false,
             ClockSkew = TimeSpan.Zero
         };
     });
+
+// (Opzionale) Registrazione del contesto DB e di altri servizi.
+// builder.Services.AddDbContext<EcomContext>(options =>
+//     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// (Opzionale) Registrazione di servizi personalizzati, ad esempio l'AuthService.
+// builder.Services.AddScoped<IAuthService, AuthService>();
 
 var app = builder.Build();
 
@@ -80,7 +99,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Aggiunta dei middleware per l'autenticazione e l'autorizzazione.
+// Abilita i middleware di autenticazione e autorizzazione.
 app.UseAuthentication();
 app.UseAuthorization();
 

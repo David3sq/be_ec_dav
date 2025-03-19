@@ -2,21 +2,19 @@
 {
     public class AuthService
     {
-		private readonly EconContext _context;
-		private readonly Log _log;
+		private readonly EcomContext _context;
 		private readonly IConfiguration _configuration;
 		private readonly IMapper _mapper;
-		public AuthService(EcomContext ecomcontext, Log log, IConfiguration configuration)
+		public AuthService(EcomContext ecomcontext, IConfiguration configuration)
 		{
 			_context = ecomcontext;
-			_log = log;
 			_configuration = configuration;
 		}
 
-		public async Task<ServiceResponse<int>> Register (Utenti utenti)
+		public async Task<ServiceResponse<int>> Register (Utenti utenti, string password)
 		{
 			var response = new ServiceResponse<int>();
-			if(await UserExists(untenti.Username))
+			if(await UserExists(utenti.Username))
 			{
 				response.Message = "Utente già registrato";
 				response.Success = false;
@@ -28,12 +26,11 @@
             utenti.PasswordHash = passwordHash;
             utenti.PasswordSalt = passwordSalt;
 
-			_context.untenti.Add(utenti);
-			await _context.SaveChangeAsync();
+			_context.Utenti.Add(utenti);
+			await _context.SaveChangesAsync();
 			//imposta la variabile globale che indica l'identificativo dell utente ID
-            _log.Savelog = utenti.ID;
             
-            response.Data = utenti.ID;
+            response.Data = utenti.Id;
             response.Success = true;
             response.Message = "Utente registrato con successo.";
             
@@ -42,7 +39,8 @@
 
 		public async Task<ServiceResponse<int>> Login(Utenti utenti)
 		{
-				
+			var response = new ServiceResponse<int>();
+			return response;
 		}
     }
 }
