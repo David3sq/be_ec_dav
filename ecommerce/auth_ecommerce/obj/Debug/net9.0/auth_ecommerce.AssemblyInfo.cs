@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("auth_ecommerce")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c4c6199473618448cae3456cca47d5fa8481550")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d877ebf52f2147e03cc24c8027c99147a2bab8ba")]
 [assembly: System.Reflection.AssemblyProductAttribute("auth_ecommerce")]
 [assembly: System.Reflection.AssemblyTitleAttribute("auth_ecommerce")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
